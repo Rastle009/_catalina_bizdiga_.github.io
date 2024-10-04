@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление товарами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5e1; /* Светло-зеленый фон */
+            color: #2e7d32; /* Тёмно-зелёный текст */
+        }
+        .category {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #a5d6a7; /* Светло-зеленый */
+            border-radius: 5px;
+            color: #1b5e20; /* Темный текст */
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .edit-button {
+            background-color: #66bb6a; /* Зеленый */
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .edit-button:hover {
+            background-color: #338a3e; /* Темно-зеленый при наведении */
+        }
+        .delete-button {
+            background-color: #388e3c; /* Темно-зеленый */
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: #1b5e20; /* Очень темный зеленый при наведении */
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #388e3c; /* Темно-зеленая граница */
+            border-radius: 3px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .language-buttons {
+            margin-bottom: 20px;
+        }
+        .language-button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #81c784; /* Светло-зеленый */
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+        .language-button:hover {
+            background-color: #388e3c; /* Темно-зеленый при наведении */
+        }
+        h1, h2, h3 {
+            color: #1b5e20; /* Темный зеленый */
+        }
+        #total-sum {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Управление товарами</h1>
+
+<div>
+    <button class="language-button" onclick="switchLanguage('ru')">Русский</button>
+    <button class="language-button" onclick="switchLanguage('en')">English</button>
+    <button class="language-button" onclick="switchLanguage('md')">Молдавский</button>
+</div>
+
+<div class="category">
+    <h2>GoCon</h2>
+    <ul id="gocon-items"></ul>
+    <div class="form-container" id="gocon-form">
+        <input type="text" id="gocon-name" placeholder="Название товара">
+        <input type="number" id="gocon-price" placeholder="Цена товара">
+        <input type="text" id="gocon-quantity" placeholder="Количество товара (например, 10+5)">
+        <button id="add-item-button" onclick="addItem()">Добавить товар</button>
+    </div>
+</div>
+
+<h2 id="saved-items-title">Сохранённые товары:</h2>
+<ul id="saved-items"></ul>
+<button id="delete-all-button" onclick="deleteAllItems()">Удалить все товары</button>
+<h3 id="total-sum-title">Общая сумма: <span id="total-sum">0</span> MDL.</h3>
+
+<script src="script.js"></script>
+</body>
+</html>
